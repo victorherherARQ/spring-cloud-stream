@@ -5,7 +5,7 @@ import org.springframework.messaging.MessageChannel;
 
 public interface SourceArticle {
 	//es output
-	String ARTICLE = "input-article";
+	String ARTICLE = "output-article";
 
 	@Output(ARTICLE)
 	MessageChannel sampleSource();

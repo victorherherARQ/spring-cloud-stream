@@ -10,7 +10,7 @@ import org.springframework.messaging.SubscribableChannel;
 	public interface SinkArticle {
 		  String INPUT = "input-article";
 
-	//	  @Input(SinkArticle.INPUT)
+		  @Input(SinkArticle.INPUT)
 		  SubscribableChannel input();
 		}
 

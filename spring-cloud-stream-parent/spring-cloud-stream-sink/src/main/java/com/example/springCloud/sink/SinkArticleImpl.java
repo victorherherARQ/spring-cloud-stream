@@ -11,12 +11,12 @@ import com.example.springCloud.data.Article;
 
 
 
-//@EnableBinding(SinkArticle.class)
+@EnableBinding(SinkArticle.class)
 public class SinkArticleImpl{
 	
 
 	
-//	@StreamListener(SinkArticle.INPUT)
+	@StreamListener(SinkArticle.INPUT)
 	public void handle(Article article) {
 		System.out.println("Received: " + article.toString());
 	

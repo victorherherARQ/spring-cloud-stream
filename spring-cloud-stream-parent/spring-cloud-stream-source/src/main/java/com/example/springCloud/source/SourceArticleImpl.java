@@ -11,6 +11,7 @@ import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.util.StringUtils;
 
 @EnableBinding(SourceArticle.class)
 public class SourceArticleImpl {
@@ -22,7 +23,8 @@ public class SourceArticleImpl {
 	public MessageSource<String> timerMessageSource() {
 		return new MessageSource<String>() {
 			public Message<String> receive() {
-				String value = "{\"name\":\"Sam Sami\"}";
+				 
+				String value = "{ \"code\":\"5\" , \"name\":\"Sam Sami\"}";
 				logger.info("Sending value: " + value);
 				return MessageBuilder.withPayload(value).build();
 			}

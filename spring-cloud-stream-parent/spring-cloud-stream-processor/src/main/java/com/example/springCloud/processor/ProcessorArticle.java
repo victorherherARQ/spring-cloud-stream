@@ -8,16 +8,16 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import com.example.springCloud.data.Article;
 
 @EnableBinding(Processor.class)
-public class ProcessorPerson {
+public class ProcessorArticle {
 
 	@StreamListener(Processor.INPUT)
 	@SendTo(Processor.OUTPUT)
-	public String processOrder(Article person) {
+	public Article processOrder(Article article) {
 	
-		System.out.println("Received: " + person);
-		person.setName(person.getName().toUpperCase());
+		System.out.println("Received: " + article);
+		article.setName(article.getName().toUpperCase());
 		
-		return person.toString();
+		return article;
 		
 	}
 

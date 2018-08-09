@@ -1,25 +1,13 @@
 server:
-  port: '9080'
+  port: '9082'
 spring:
   cloud:
     stream:
       bindings:
-        input-article:
+        output-article:
           destination: ArticleInput
           group: ArticleGroup
-          binder: local_rabbit
-        output-article:
-          destination: personOutput
-          group: personGroup
           binder: local_rabbit    
-        input:
-          destination: processorInput
-          group: personGroup
-          binder: local_rabbit
-        output:
-          destination: processorOutput
-          group: personGroup
-          binder: local_rabbit 
       binders:
         local_rabbit:
           type: rabbit
