@@ -1,0 +1,33 @@
+server:
+  port: '9080'
+spring:
+  cloud:
+    stream:
+      bindings:
+        input-article:
+          destination: ArticleInput
+          group: ArticleGroup
+          binder: local_rabbit
+        output-sink:
+          destination: personOutput
+          group: personGroup
+          binder: local_rabbit    
+        input:
+          destination: processorInput
+          group: personGroup
+          binder: local_rabbit
+        output:
+          destination: processorOutput
+          group: personGroup
+          binder: local_rabbit 
+      binders:
+        local_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
